@@ -1,0 +1,4 @@
+.DS_Store
+.firebase/
+.claude/
+node_modules/
