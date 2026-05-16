@@ -1454,26 +1454,12 @@ h3 { font-size: 1.75rem; }
     .hamburger { display: flex; }
 }
 
-/* Hero parallax background. Mobile/tablet browsers ignore
-   background-attachment: fixed, so on <=1024px we use an absolutely
-   positioned layer INSIDE .hero (clipped by its overflow: hidden) and
-   counteract scroll via JS — a fixed-background illusion that cannot
-   bleed past the hero. Desktop keeps background-attachment: fixed on
-   .hero itself, so this layer is hidden there. */
-.hero-bg-fixed { display: none; }
-
+/* Mobile/tablet browsers ignore background-attachment: fixed and any
+   JS scroll-parallax desyncs from the compositor (visible lag). So on
+   <=1024px the hero image simply scrolls with its section — smooth,
+   GPU-composited, no bleed. Desktop keeps the true fixed parallax. */
 @media (max-width: 1024px) {
-    .hero-bg-fixed {
-        display: block;
-        position: absolute;
-        inset: 0;
-        background-image: url('hero-bg.png');
-        background-size: cover;
-        background-position: center;
-        z-index: 0;
-        pointer-events: none;
-        will-change: transform;
-    }
+    .hero { background-attachment: scroll; }
 }
 
 /* ── Pre-Launch Banner ─────────────────────────────────── */
