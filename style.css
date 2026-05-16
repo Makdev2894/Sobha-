@@ -1454,26 +1454,12 @@ h3 { font-size: 1.75rem; }
     .hamburger { display: flex; }
 }
 
-/* Hero fixed-background fallback. Mobile/tablet Safari ignores
-   background-attachment: fixed, so the hero image scrolls. Replace it
-   with a real position: fixed layer that sits below the overlay/grain/
-   content (z-index 1/2) and is covered by following opaque sections.
-   Breakpoint is 1024px to also cover iPad landscape. */
+/* Mobile/tablet browsers ignore background-attachment: fixed and any
+   JS scroll-parallax desyncs from the compositor (visible lag). So on
+   <=1024px the hero image simply scrolls with its section — smooth,
+   GPU-composited, no bleed. Desktop keeps the true fixed parallax. */
 @media (max-width: 1024px) {
     .hero { background-attachment: scroll; }
-    .hero::after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-image: url('hero-bg.png');
-        background-size: cover;
-        background-position: center 30%;
-        z-index: 0;
-        pointer-events: none;
-    }
 }
 
 /* ── Pre-Launch Banner ─────────────────────────────────── */
