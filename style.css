@@ -1454,25 +1454,25 @@ h3 { font-size: 1.75rem; }
     .hamburger { display: flex; }
 }
 
-/* Hero fixed-background fallback. Mobile/tablet Safari ignores
-   background-attachment: fixed, so the hero image scrolls. Replace it
-   with a real position: fixed layer that sits below the overlay/grain/
-   content (z-index 1/2) and is covered by following opaque sections.
-   Breakpoint is 1024px to also cover iPad landscape. */
+/* Hero parallax background. Mobile/tablet browsers ignore
+   background-attachment: fixed, so on <=1024px we use an absolutely
+   positioned layer INSIDE .hero (clipped by its overflow: hidden) and
+   counteract scroll via JS — a fixed-background illusion that cannot
+   bleed past the hero. Desktop keeps background-attachment: fixed on
+   .hero itself, so this layer is hidden there. */
+.hero-bg-fixed { display: none; }
+
 @media (max-width: 1024px) {
-    .hero { background-attachment: scroll; }
-    .hero::after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
+    .hero-bg-fixed {
+        display: block;
+        position: absolute;
+        inset: 0;
         background-image: url('hero-bg.png');
         background-size: cover;
-        background-position: center 30%;
+        background-position: center;
         z-index: 0;
         pointer-events: none;
+        will-change: transform;
     }
 }
 
