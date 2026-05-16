@@ -1422,6 +1422,25 @@ h3 { font-size: 1.75rem; }
 
     .hero-title { font-size: 2.4rem; }
 
+    /* Mobile browsers (esp. iOS Safari) ignore background-attachment:
+       fixed, so the hero image scrolls. Replace it with a real
+       position: fixed layer; sits below the overlay/grain/content
+       (z-index 1/2) and is covered by following opaque sections. */
+    .hero { background-attachment: scroll; }
+    .hero::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: url('hero-bg.png');
+        background-size: cover;
+        background-position: center 30%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
     .hero-stats { flex-wrap: wrap; gap: 0; }
     .stat-item  { flex: 1 1 45%; padding: 16px 12px; }
     .stat-item:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,0.12); }
