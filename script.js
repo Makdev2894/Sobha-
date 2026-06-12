@@ -100,6 +100,28 @@ if (!sessionStorage.getItem('popupInteracted')) {
 }
 
 // ── Form Helpers ──────────────────────────────────────────────
+// Indian mobile: 10 digits, starts with 6/7/8/9. Strips spaces, dashes, +91, leading 0.
+function validatePhone(form) {
+    var phoneEl = form.querySelector('input[name="phone"]');
+    if (!phoneEl) return true;
+    var raw = (phoneEl.value || '').replace(/[\s\-()]/g, '');
+    raw = raw.replace(/^(\+?91|0)/, '');
+    if (!/^[6-9]\d{9}$/.test(raw)) {
+        phoneEl.setCustomValidity('Please enter a valid 10-digit Indian mobile number.');
+        phoneEl.reportValidity();
+        phoneEl.focus();
+        return false;
+    }
+    phoneEl.setCustomValidity('');
+    phoneEl.value = raw;
+    return true;
+}
+
+// Clear custom validity as user types
+document.querySelectorAll('input[name="phone"]').forEach(function (el) {
+    el.addEventListener('input', function () { el.setCustomValidity(''); });
+});
+
 function collectFormData(form, formType) {
     var data = {
         formType: formType,
@@ -165,6 +187,7 @@ function submitToSheet(data, submitBtn, successContainer) {
 if (heroForm) {
     heroForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        if (!validatePhone(this)) return;
         var data = collectFormData(this, 'hero');
         var btn = this.querySelector('[type="submit"]');
         submitToSheet(data, btn, this.closest('.hero-form-card'));
@@ -175,6 +198,7 @@ if (heroForm) {
 if (ctaForm) {
     ctaForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        if (!validatePhone(this)) return;
         var data = collectFormData(this, 'cta');
         var btn = this.querySelector('[type="submit"]');
         submitToSheet(data, btn, this.closest('.cta-form-container'));
@@ -185,6 +209,7 @@ if (ctaForm) {
 if (popupForm) {
     popupForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        if (!validatePhone(this)) return;
         var data = collectFormData(this, modalFormType.value);
         var btn = this.querySelector('[type="submit"]');
         submitToSheet(data, btn, this.closest('.modal-card'));
