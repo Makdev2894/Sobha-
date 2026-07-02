@@ -222,12 +222,12 @@
                     <div class="hero-cta">
                         <button class="btn btn-gold-solid" data-modal="floorplans">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:7px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            <span class="btn-label-full">Floor Plans (Tentative)</span>
-                            <span class="btn-label-short">Floor Plans (Tent.)</span>
+                            <span class="btn-label-full">Floor Plans</span>
+                            <span class="btn-label-short">Floor Plans</span>
                         </button>
                         <button class="btn btn-gold-solid" data-modal="gallery">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:7px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            Gallery
+                            Brochure
                         </button>
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                             <input type="email" name="email" placeholder="Email Address" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                            <input type="tel" name="phone" placeholder="10-digit Mobile Number" required inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9">
                         </div>
                         <div class="form-group">
                             <select name="configuration" required>
@@ -555,7 +555,7 @@
                     <form id="ctaLeadForm" class="lead-form compact-form">
                         <input type="text" name="fullName" placeholder="Name" required>
                         <input type="email" name="email" placeholder="Email" required>
-                        <input type="tel" name="phone" placeholder="Phone" required>
+                        <input type="tel" name="phone" placeholder="10-digit Mobile" required inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9">
                         <select name="configuration">
                             <option value="" disabled selected>Configuration</option>
                             <option value="1 BHK">1 BHK</option>
@@ -606,7 +606,7 @@
                     <input type="email" name="email" placeholder="Email Address" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <input type="tel" name="phone" placeholder="10-digit Mobile Number" required inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9">
                 </div>
                 <div class="form-group">
                     <select name="configuration">

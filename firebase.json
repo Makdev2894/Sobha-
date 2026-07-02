@@ -6,9 +6,7 @@
       "**/.*",
       "**/.*/**",
       "**/node_modules/**",
-      "CONTEXT.md",
-      "Gallery.pdf",
-      "Tentative Floor plans.pdf"
+      "CONTEXT.md"
     ]
   }
 }
