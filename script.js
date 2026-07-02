@@ -36,18 +36,18 @@ var MODAL_CONTEXTS = {
         download: { href: 'Master Plan.png', filename: 'Sobha-World-City-Master-Plan.png' }
     },
     'floorplans': {
-        title:    'Download Floor Plans (Tentative)',
-        subtitle: 'Share your details and the tentative floor plans will download instantly.',
+        title:    'Download Floor Plans',
+        subtitle: 'Share your details and the floor plans will download instantly.',
         btnText:  'Download Floor Plans',
         type:     'floorplan-request',
-        download: { href: 'Tentative Floor plans.pdf', filename: 'Sobha-One-World-Tentative-Floor-Plans.pdf' }
+        download: { href: 'SOBHA_OneWorld_Merged.pdf', filename: 'Sobha-One-World-Floor-Plans.pdf' }
     },
     'gallery': {
-        title:    'Download Gallery',
-        subtitle: 'Share your details and the project gallery will download instantly.',
-        btnText:  'Download Gallery',
+        title:    'Download the Brochure',
+        subtitle: 'Share your details and the project brochure will download instantly.',
+        btnText:  'Download Brochure',
         type:     'gallery-request',
-        download: { href: 'Gallery.pdf', filename: 'Sobha-One-World-Gallery.pdf' }
+        download: { href: 'SOBHA OneWorld Main Brochure.pdf', filename: 'Sobha-One-World-Brochure.pdf' }
     }
 };
 
